@@ -1,0 +1,2 @@
+Connecting to socket /var/run/mysqld/mysqld.sock, owned by user mysql
+(1698, "Access denied for user 'root'@'localhost'")

@@ -1,0 +1,31 @@
+
+version: '3.3'
+services:
+  web:
+
+    #image: php:7.3-apache
+    build:
+      context: ./php
+      dockerfile: Dockerfile
+    container_name: php73
+    #php should start when starting the machine so that the software is 
+    #always available and does not need to get restarted manually
+    restart: always
+    volumes:
+      - ./php:/var/www/html/
+    ports:
+      - 5001:80
+  db:
+    container_name: mariadb
+    image: mariadb:10.5.17
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: nachweis_db
+      MYSQL_USER: devuser
+      MYSQL_PASSWORD: devpass
+    volumes:
+      - ./data:/docker-entrypoint-initdb.d
+    ports:
+        - 3307:3306
