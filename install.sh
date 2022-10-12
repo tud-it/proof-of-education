@@ -3,7 +3,7 @@ do
     sudo -v
     # Aufbau des Menüs
     CHOICE=$(
-        whiptail --title "Ausbildungsnachweis installer" --menu "" 16 100 9 \
+        whiptail --title "proof of education installer" --menu "" 16 100 9 \
         "1)" "Install" \
         "2)" "Start Server" \
         "3)" "Stop Server" \
@@ -46,7 +46,7 @@ do
                 echo "85"
                 sudo docker-compose up -d 2> /dev/null
                 echo "100"
-            } |whiptail --title "Installing Ausbildungsnachweis" --gauge "Please wait while installing" 6 60 0
+            } |whiptail --title "Installing proof of education" --gauge "Please wait while installing" 6 60 0
         ;;
         "2)")
             sudo docker-compose up -d
